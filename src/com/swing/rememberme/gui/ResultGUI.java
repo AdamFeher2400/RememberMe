@@ -26,7 +26,7 @@ public class ResultGUI extends JDialog  {
 		String[] categories = new String[] { "Math", "Animals", "Flags", "Cars" };
 		
         String[] columns = new String[] {
-                "Name", "Category", "Level", "Score"
+                "Name", "Level", "Category", "Score"
         };
          
         //actual data for the table in a 2d array

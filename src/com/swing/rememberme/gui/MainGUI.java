@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -165,12 +167,14 @@ public class MainGUI extends JFrame {
 		login = new LoginGUI();
 
 	    
-	    login.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-
-
-
+	    login.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		login.setVisible(true);
-  
+		login.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent we) {
+				System.exit(0);
+			}
+		});
+		login.dispatchEvent(new WindowEvent(login, WindowEvent.WINDOW_CLOSING));
 		createMenuBar();
 		
        
@@ -209,6 +213,7 @@ public class MainGUI extends JFrame {
             	int playtime = engine.startGame();
             	timeprogress.setMaximum(playtime);
             	timeprogress.setValue(playtime);
+            	timeprogress.setForeground(Color.LIGHT_GRAY);
             	score.setText("0");
             	
             	timer.cancel();

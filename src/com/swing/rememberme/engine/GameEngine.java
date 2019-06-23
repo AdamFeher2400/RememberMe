@@ -74,6 +74,7 @@ public class GameEngine {
 		prevPos = new Point(-1, -1);
 		bStarted = true;
 		livingCard = 20;
+		score = 0;
 		return playtime;
 	}
 	public void endGame() {
